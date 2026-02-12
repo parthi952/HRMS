@@ -61,20 +61,20 @@ export const EMPleaves = () => {
       {selectedEmployee && (
         <div className="absolute top-10 right-10 bg-white shadow-lg p-6 rounded-lg w-96 z-50">
           <h3 className="text-xl font-bold mb-2">{selectedEmployee.name}</h3>
-          <p><strong>Employee ID:</strong> {selectedEmployee.empid}</p>
-          <p><strong>Total Leaves:</strong> {selectedEmployee.total_leave}</p>
-          <p><strong>Used Leaves:</strong> {selectedEmployee.used_leave}</p>
-          <p><strong>Available Leaves:</strong> {selectedEmployee.available_leaves}</p>
+          <p className="font-bold">  Employee ID:  {selectedEmployee.empid}</p>
+            <p className="font-bold">  Total Leaves:  {selectedEmployee.total_leave}</p>
+            <p className="font-bold">  Used Leaves:  {selectedEmployee.used_leave}</p>
+            <p className="font-bold">  Available Leaves:  {selectedEmployee.available_leaves}</p>
 
           <h4 className="mt-4 font-semibold">Leave History:</h4>
           <ul className="mt-2 max-h-64 overflow-y-auto">
             {selectedEmployee.leave_history.map((leave, index) => (
               <li key={index} className="border-b py-1">
-                <p><strong>Applied:</strong> {leave.apply_date}</p>
-                <p><strong>From:</strong> {leave.from_date} <strong>To:</strong> {leave.to_date}</p>
-                <p><strong>Days:</strong> {leave.number_of_days}</p>
-                <p><strong>Status:</strong> {leave.approve_status}</p>
-                <p><strong>Reason:</strong> {leave.reason}</p>
+                  <p className="font-bold">  Applied:  {leave.apply_date}</p>
+                  <p className="font-bold">  From:  {leave.from_date}   To:  {leave.to_date}</p>
+                  <p className="font-bold">  Days:  {leave.number_of_days}</p>
+                  <p className="font-bold">  Status:  {leave.approve_status}</p>
+                  <p className="font-bold">  Reason:  {leave.reason}</p>
               </li>
             ))}
           </ul>
