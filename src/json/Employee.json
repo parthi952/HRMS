@@ -1,0 +1,22 @@
+[
+  {
+    "id": "EMP001",
+    "name": "Parthiban",
+    "email": "parthiban@company.com",
+    "phone": "9876543210",
+    "department": "HR",
+    "designation": "HR Manager",
+    "status": "Active",
+    "dateOfJoining": "2022-06-15"
+  },
+  {
+    "id": "EMP002",
+    "name": "Ravi Kumar",
+    "email": "ravi@company.com",
+    "phone": "9123456789",
+    "department": "Engineering",
+    "designation": "Frontend Developer",
+    "status": "Active",
+    "dateOfJoining": "2023-03-01"
+  }
+]

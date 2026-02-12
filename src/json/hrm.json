@@ -1,0 +1,99 @@
+{
+  "company": {
+    "id": "COMP001",
+    "name": "ABC Technologies",
+    "location": "Chennai, India",
+    "financialYear": "2025-2026"
+  },
+
+  "departments": [
+    {
+      "id": "D001",
+      "name": "Human Resources",
+      "managerId": "EMP001"
+    },
+    {
+      "id": "D002",
+      "name": "Engineering",
+      "managerId": "EMP003"
+    }
+  ],
+
+  "roles": [
+    {
+      "id": "R001",
+      "name": "HR Manager",
+      "permissions": ["EMPLOYEE_ADD", "PAYROLL_VIEW", "LEAVE_APPROVE"]
+    },
+    {
+      "id": "R002",
+      "name": "Software Engineer",
+      "permissions": ["ATTENDANCE_MARK", "LEAVE_APPLY"]
+    }
+  ],
+
+  "employees": [
+    {
+      "id": "EMP001",
+      "name": "Parthiban",
+      "email": "parthiban@abc.com",
+      "phone": "9876543210",
+      "departmentId": "D001",
+      "roleId": "R001",
+      "designation": "HR Manager",
+      "dateOfJoining": "2022-06-15",
+      "status": "Active"
+    },
+    {
+      "id": "EMP002",
+      "name": "Ravi Kumar",
+      "email": "ravi@abc.com",
+      "phone": "9123456789",
+      "departmentId": "D002",
+      "roleId": "R002",
+      "designation": "Frontend Developer",
+      "dateOfJoining": "2023-03-01",
+      "status": "Active"
+    }
+  ],
+
+  "attendance": [
+    {
+      "employeeId": "EMP002",
+      "date": "2026-02-10",
+      "checkIn": "09:15",
+      "checkOut": "18:10",
+      "status": "Present"
+    }
+  ],
+
+  "leaveTypes": [
+    { "id": "LT001", "name": "Casual Leave", "maxDays": 12 },
+    { "id": "LT002", "name": "Sick Leave", "maxDays": 10 }
+  ],
+
+  "leaves": [
+    {
+      "id": "LV001",
+      "employeeId": "EMP002",
+      "leaveTypeId": "LT001",
+      "fromDate": "2026-02-15",
+      "toDate": "2026-02-16",
+      "reason": "Personal work",
+      "status": "Approved"
+    }
+  ],
+
+  "payroll": [
+    {
+      "employeeId": "EMP002",
+      "month": "February",
+      "year": 2026,
+      "basicSalary": 50000,
+      "hra": 10000,
+      "deductions": 5000,
+      "netSalary": 55000,
+      "paymentStatus": "Paid"
+    }
+  ]
+}

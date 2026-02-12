@@ -1,0 +1,169 @@
+{
+  "employees": [
+    {
+      "id": "EMP001",
+      "name": "Parthiban",
+      "email": "parthiban@company.com",
+      "phone": "9876543210",
+      "department": "HR",
+      "designation": "HR Manager",
+      "status": "Active",
+      "dateOfJoining": "2022-06-15"
+    },
+    {
+      "id": "EMP002",
+      "name": "Ravi Kumar",
+      "email": "ravi@company.com",
+      "phone": "9123456789",
+      "department": "Engineering",
+      "designation": "Frontend Developer",
+      "status": "Active",
+      "dateOfJoining": "2023-03-01"
+    },
+    {
+      "id": "EM1000",
+      "name": "parthieepan murugan",
+      "email": "parthimp950@gmail.com",
+      "phone": "07540099101",
+      "department": "hr",
+      "designation": "DEVALOPER",
+      "status": "In Active",
+      "dateOfJoining": "2026-02-12"
+    },
+    {
+      "id": "EMP567",
+      "name": "parthieepan murugan",
+      "email": "parthimp950@gmail.com",
+      "phone": "07540099101",
+      "department": "hr",
+      "designation": "DEVALOPER",
+      "status": "InActive",
+      "dateOfJoining": "2026-02-19"
+    },
+    {
+      "id": "EMP567",
+      "name": "parthieepan murugan",
+      "email": "parthimp950@gmail.com",
+      "phone": "07540099101",
+      "department": "hr",
+      "designation": "233",
+      "status": "InActive",
+      "dateOfJoining": "2026-02-19"
+    },
+    {
+      "id": "EMP567",
+      "name": "PARTHEEBAN M",
+      "email": "parthimp950@gmail.com",
+      "phone": "07540099101",
+      "department": "it",
+      "designation": "DEVALOPER",
+      "status": "Inactive",
+      "dateOfJoining": "2026-02-12"
+    }
+  ],
+  "attendance": [
+    {
+       "id": "ATT002",
+      "employee_id": "EMP002",
+      "employee_name": "Priya Sharma",
+      "attendance_date": "2026-02-10",
+      "check_in": "09:30",
+      "check_out": "18:00",
+      "status": "Late"
+    },
+    {
+      "id": "ATT002",
+      "employee_id": "EMP002",
+      "employee_name": "Priya Sharma",
+      "attendance_date": "2026-02-10",
+      "check_in": "09:30",
+      "check_out": "18:00",
+      "status": "Late"
+    },
+    {
+       "id": "ATT002",
+      "employee_id": "EMP002",
+      "employee_name": "Priya Sharma",
+      "attendance_date": "2026-02-10",
+      "check_in": "09:30",
+      "check_out": "18:00",
+      "status": "Late"
+    },
+    {
+      "id": "ATT004",
+      "employee_id": "EMP004",
+      "employee_name": "Sneha Reddy",
+      "attendance_date": "2026-02-10",
+      "check_in": "08:55",
+      "check_out": "17:45",
+      "status": "Present"
+    },
+    {
+      "id": "ATT005",
+      "employee_id": "EMP005",
+      "employee_name": "Karthik Raj",
+      "attendance_date": "2026-02-10",
+      "check_in": "10:15",
+      "check_out": null,
+      "status": "Half Day"
+    }
+  ],
+  "Emp_leaves":[
+  {
+    "leave_id": "LEV001",
+    "employee_id": "EMP001",
+    "employee_name": "Arjun Kumar",
+    "leave_type": "Casual Leave",
+    "from_date": "2026-02-15",
+    "to_date": "2026-02-16",
+    "total_days": 2,
+    "reason": "Personal Work",
+    "status": "Approved"
+  },
+  {
+    "leave_id": "LEV002",
+    "employee_id": "EMP002",
+    "employee_name": "Priya Sharma",
+    "leave_type": "Sick Leave",
+    "from_date": "2026-02-18",
+    "to_date": "2026-02-19",
+    "total_days": 2,
+    "reason": "Fever",
+    "status": "Pending"
+  },
+  {
+    "leave_id": "LEV003",
+    "employee_id": "EMP003",
+    "employee_name": "Rahul Verma",
+    "leave_type": "Annual Leave",
+    "from_date": "2026-03-01",
+    "to_date": "2026-03-05",
+    "total_days": 5,
+    "reason": "Family Trip",
+    "status": "Approved"
+  },
+  {
+    "leave_id": "LEV004",
+    "employee_id": "EMP004",
+    "employee_name": "Sneha Reddy",
+    "leave_type": "Casual Leave",
+    "from_date": "2026-02-20",
+    "to_date": "2026-02-20",
+    "total_days": 1,
+    "reason": "Personal Work",
+    "status": "Rejected"
+  },
+  {
+    "leave_id": "LEV005",
+    "employee_id": "EMP005",
+    "employee_name": "Karthik Raj",
+    "leave_type": "Sick Leave",
+    "from_date": "2026-02-22",
+    "to_date": "2026-02-23",
+    "total_days": 2,
+    "reason": "Medical Checkup",
+    "status": "Pending"
+  }
+]
+
+}

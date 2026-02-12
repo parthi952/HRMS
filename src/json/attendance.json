@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "employeeId": "EMP002",
+    "date": "2026-02-10",
+    "checkIn": "09:15",
+    "checkOut": "18:10",
+    "status": "Present"
+  }
+]

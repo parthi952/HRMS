@@ -1,0 +1,11 @@
+[
+  {
+    "id": "LV001",
+    "employeeId": "EMP002",
+    "leaveType": "Casual Leave",
+    "fromDate": "2026-02-15",
+    "toDate": "2026-02-16",
+    "days": 2,
+    "status": "Approved"
+  }
+]
