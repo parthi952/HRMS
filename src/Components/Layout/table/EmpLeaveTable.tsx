@@ -1,28 +1,17 @@
 
-type Column = {
-  header: string;
-  accessor: string;
-};
+type Column =
+  | { header: string; accessor: string }
+  | { header: string; type: "action" };
 
 type TableProps = {
   columns: Column[];
   data: Record<string, any>[];
-  LinkTo : string;
+  onRowClick?: (row: any) => void
 };
 
-const getStatusColor = (status: string) => {
-  switch (status.toLowerCase()) {
-    case "active":
-      return "bg-green-100 text-green-700";
-    case "inactive":
-      return "bg-red-100 text-red-700";
-    default:
-      return "bg-gray-100 text-gray-700";
-  }
-};
+export const EmpLeaveTable = ({ columns, data ,onRowClick}: TableProps) => {
 
 
-export const EmpLeaveTable = ({ columns, data, }: TableProps) => {
   return (
     <div className="bg-white rounded-lg shadow overflow-x-auto">
       <table className="w-full">
@@ -40,25 +29,17 @@ export const EmpLeaveTable = ({ columns, data, }: TableProps) => {
         {/* Body */}
         <tbody>
           {data.map((row, rowIndex) => (
-
-            <tr key={rowIndex} className="border-t" >
+           <tr
+  key={rowIndex}
+  className="border-t cursor-pointer hover:bg-gray-100"
+  onClick={() => onRowClick && onRowClick(row)} 
+>
               {columns.map((col, colIndex) => (
                 <td key={colIndex} className="p-3">
-                  {col.accessor === "status" ? (
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(
-                        row[col.accessor]
-                      )}`}
-                    >
-                      {row[col.accessor]}
-                    </span>
-                  ) : (
-                    row[col.accessor]
-                  )}
+                  {"accessor" in col ? row[col.accessor] : null}
                 </td>
               ))}
             </tr>
-
           ))}
         </tbody>
       </table>

@@ -108,62 +108,49 @@
       "status": "Half Day"
     }
   ],
-  "Emp_leaves":[
-  {
-    "leave_id": "LEV001",
-    "employee_id": "EMP001",
-    "employee_name": "Arjun Kumar",
-    "leave_type": "Casual Leave",
-    "from_date": "2026-02-15",
-    "to_date": "2026-02-16",
-    "total_days": 2,
-    "reason": "Personal Work",
-    "status": "Approved"
-  },
-  {
-    "leave_id": "LEV002",
-    "employee_id": "EMP002",
-    "employee_name": "Priya Sharma",
-    "leave_type": "Sick Leave",
-    "from_date": "2026-02-18",
-    "to_date": "2026-02-19",
-    "total_days": 2,
-    "reason": "Fever",
-    "status": "Pending"
-  },
-  {
-    "leave_id": "LEV003",
-    "employee_id": "EMP003",
-    "employee_name": "Rahul Verma",
-    "leave_type": "Annual Leave",
-    "from_date": "2026-03-01",
-    "to_date": "2026-03-05",
-    "total_days": 5,
-    "reason": "Family Trip",
-    "status": "Approved"
-  },
-  {
-    "leave_id": "LEV004",
-    "employee_id": "EMP004",
-    "employee_name": "Sneha Reddy",
-    "leave_type": "Casual Leave",
-    "from_date": "2026-02-20",
-    "to_date": "2026-02-20",
-    "total_days": 1,
-    "reason": "Personal Work",
-    "status": "Rejected"
-  },
-  {
-    "leave_id": "LEV005",
-    "employee_id": "EMP005",
-    "employee_name": "Karthik Raj",
-    "leave_type": "Sick Leave",
-    "from_date": "2026-02-22",
-    "to_date": "2026-02-23",
-    "total_days": 2,
-    "reason": "Medical Checkup",
-    "status": "Pending"
-  }
-]
 
+  "Total_leaves": [
+    {
+      "empid": "EMP001",
+      "name": "John Doe",
+      "total_leave": 20,
+      "used_leave": 8,
+      "available_leaves": 12
+    },
+    {
+      "empid": "EMP002",
+      "name": "Priya Sharma",
+      "total_leave": 18,
+      "used_leave": 5,
+      "available_leaves": 13
+    },
+    {
+      "empid": "EMP003",
+      "name": "Rahul Kumar",
+      "total_leave": 15,
+      "used_leave": 10,
+      "available_leaves": 5
+    },
+    {
+      "empid": "EMP004",
+      "name": "Anita Singh",
+      "total_leave": 20,
+      "used_leave": 3,
+      "available_leaves": 17
+    },
+    {
+      "empid": "EMP005",
+      "name": "Vikram Patel",
+      "total_leave": 15,
+      "used_leave": 7,
+      "available_leaves": 8
+    },
+    {
+      "empid": "EMP006",
+      "name": "Sara Ali",
+      "total_leave": 18,
+      "used_leave": 4,
+      "available_leaves": 14
+    }
+  ]
 }

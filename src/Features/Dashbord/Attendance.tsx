@@ -54,7 +54,7 @@ export const Attendance = () => {
         throw new Error("Failed to update attendance");
       }
 
-      await fetchAttendance();   // ✅ Now works
+      await fetchAttendance();   
       setShowEdit(false);
     } catch (error) {
       console.error("Error updating attendance:", error);

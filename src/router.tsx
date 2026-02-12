@@ -47,6 +47,7 @@ export const router = createBrowserRouter([
         path:"/employeeleave",
         element:<EMPleaves/>
       },
+
       {
         path:"/leaverequests",
         element:<LeaveRequest/>
