@@ -110,47 +110,132 @@
   ],
 
   "Total_leaves": [
-    {
-      "empid": "EMP001",
-      "name": "John Doe",
-      "total_leave": 20,
-      "used_leave": 8,
-      "available_leaves": 12
-    },
-    {
-      "empid": "EMP002",
-      "name": "Priya Sharma",
-      "total_leave": 18,
-      "used_leave": 5,
-      "available_leaves": 13
-    },
-    {
-      "empid": "EMP003",
-      "name": "Rahul Kumar",
-      "total_leave": 15,
-      "used_leave": 10,
-      "available_leaves": 5
-    },
-    {
-      "empid": "EMP004",
-      "name": "Anita Singh",
-      "total_leave": 20,
-      "used_leave": 3,
-      "available_leaves": 17
-    },
-    {
-      "empid": "EMP005",
-      "name": "Vikram Patel",
-      "total_leave": 15,
-      "used_leave": 7,
-      "available_leaves": 8
-    },
-    {
-      "empid": "EMP006",
-      "name": "Sara Ali",
-      "total_leave": 18,
-      "used_leave": 4,
-      "available_leaves": 14
-    }
-  ]
+  {
+    "empid": "EMP001",
+    "name": "John Doe",
+    "total_leave": 20,
+    "used_leave": 8,
+    "available_leaves": 12,
+    "leave_history": [
+      {
+        "apply_date": "2026-01-05",
+        "from_date": "2026-01-10",
+        "to_date": "2026-01-12",
+        "number_of_days": 3,
+        "approve_status": "Approved",
+        "reason": "Family Function"
+      },
+      {
+        "apply_date": "2026-02-01",
+        "from_date": "2026-02-05",
+        "to_date": "2026-02-06",
+        "number_of_days": 2,
+        "approve_status": "Pending",
+        "reason": "Medical"
+      }
+    ]
+  },
+  {
+    "empid": "EMP002",
+    "name": "Priya Sharma",
+    "total_leave": 18,
+    "used_leave": 5,
+    "available_leaves": 13,
+    "leave_history": [
+      {
+        "apply_date": "2026-01-15",
+        "from_date": "2026-01-20",
+        "to_date": "2026-01-22",
+        "number_of_days": 3,
+        "approve_status": "Approved",
+        "reason": "Vacation"
+      }
+    ]
+  },
+  {
+    "empid": "EMP003",
+    "name": "Rahul Kumar",
+    "total_leave": 15,
+    "used_leave": 10,
+    "available_leaves": 5,
+    "leave_history": [
+      {
+        "apply_date": "2026-02-03",
+        "from_date": "2026-02-07",
+        "to_date": "2026-02-10",
+        "number_of_days": 4,
+        "approve_status": "Rejected",
+        "reason": "Personal Work"
+      },
+      {
+        "apply_date": "2026-01-25",
+        "from_date": "2026-01-27",
+        "to_date": "2026-01-28",
+        "number_of_days": 2,
+        "approve_status": "Approved",
+        "reason": "Medical"
+      }
+    ]
+  },
+  {
+    "empid": "EMP004",
+    "name": "Anita Singh",
+    "total_leave": 20,
+    "used_leave": 3,
+    "available_leaves": 17,
+    "leave_history": [
+      {
+        "apply_date": "2026-01-10",
+        "from_date": "2026-01-12",
+        "to_date": "2026-01-13",
+        "number_of_days": 2,
+        "approve_status": "Approved",
+        "reason": "Family Function"
+      }
+    ]
+  },
+  {
+    "empid": "EMP005",
+    "name": "Vikram Patel",
+    "total_leave": 15,
+    "used_leave": 7,
+    "available_leaves": 8,
+    "leave_history": [
+      {
+        "apply_date": "2026-02-05",
+        "from_date": "2026-02-07",
+        "to_date": "2026-02-09",
+        "number_of_days": 3,
+        "approve_status": "Pending",
+        "reason": "Vacation"
+      }
+    ]
+  },
+  {
+    "empid": "EMP006",
+    "name": "Sara Ali",
+    "total_leave": 18,
+    "used_leave": 4,
+    "available_leaves": 14,
+    "leave_history": [
+      {
+        "apply_date": "2026-01-20",
+        "from_date": "2026-01-25",
+        "to_date": "2026-01-26",
+        "number_of_days": 2,
+        "approve_status": "Approved",
+        "reason": "Medical"
+      },
+       {
+        "apply_date": "2026-02-28",
+        "from_date": "2026-03-5",
+        "to_date": "2026-03-6",
+        "number_of_days": 2,
+        "approve_status": "Approved",
+        "reason": "Medical"
+      }
+    ]
+  }
+]
+
 }
