@@ -4,7 +4,7 @@ import { FormFiled } from '../../Components/Common/FormFiled';
 
 import {Selection } from "../../Components/Common/Selection"
 import { CustomDatePicker } from '../../Components/Common/CustomDatePicker.tsx';
-import { Table } from '../../Components/Layout/table/EmployeeTable.tsx';
+import { Table } from '../../Components/table/EmployeeTable.tsx';
 
 const API_URL = "http://localhost:3001/employees";
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { EmpLeaveTable } from "../../../Components/Layout/table/EmpLeaveTable";
+import { EmpLeaveTable } from "../../../Components/table/EmpLeaveTable";
 
 
 interface LeaveHistory {

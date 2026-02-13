@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Table } from '../../Components/Layout/table/AttendanceTable';
+import { Table } from '../../Components/table/AttendanceTable';
 
 interface AttendanceRecord {
   id: string;

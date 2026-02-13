@@ -1,7 +1,10 @@
+import EventCalendar from "../../../Components/EventCaculator/EventCalander"
 
 
 export const UpHolidays = () => {
   return (
-    <div>UpHolidays</div>
+    <div>
+      <EventCalendar/>
+    </div>
   )
 }

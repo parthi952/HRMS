@@ -11,6 +11,9 @@
     "server": "json-server --watch db.json --port 3001"
   },
   "dependencies": {
+    "@fullcalendar/daygrid": "^6.1.20",
+    "@fullcalendar/interaction": "^6.1.20",
+    "@fullcalendar/react": "^6.1.20",
     "@tailwindcss/vite": "^4.1.18",
     "react": "^19.2.0",
     "react-datepicker": "^9.1.0",
