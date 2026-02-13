@@ -143,6 +143,7 @@ export const Events = () => {
         <CalendarView
           events={events}
           handleDateClick={handleDateClick}
+          EventColor="#88aeeb"
         />
       </div>
     </div>

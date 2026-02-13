@@ -10,18 +10,23 @@ export type CalendarEvent = {
   start: string;
   end?: string;
   allDay?: boolean;
+  
 };
 
 
 type CalendarViewProps = {
   events: CalendarEvent[];
+  EventColor: string;
   handleDateClick: (arg: any) => void;
+  
 };
 
 
 const CalendarView: React.FC<CalendarViewProps> = ({
   events,
+  EventColor,
   handleDateClick,
+  
 }) => {
   return (
     <FullCalendar
@@ -30,6 +35,8 @@ const CalendarView: React.FC<CalendarViewProps> = ({
       events={events}
       dateClick={handleDateClick}
       height="auto"
+      eventBackgroundColor={EventColor}
+      
     />
   );
 };
