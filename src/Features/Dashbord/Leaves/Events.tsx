@@ -5,30 +5,30 @@ import { Button } from "../../../Components/Common/Button";
 export type NotifyScope = "ALL" | "TEAM" | "DEPARTMENT" | "EMPLOYEE";
 
 export interface EventFormData {
-  title: string;
-  startDateTime: string;
-  endDateTime: string;
+  event_id: string;
   category: string;
-  plan: string;
+  event_title: string;
+  date: string; // YYYY-MM-DD
+  time: string | null;
+  plan: {
+    plan_type: string;
+    details: string;
+  };
   description: string;
-  notifyScope: NotifyScope;
-  notifyTargets: string[];
 }
 
 
 
 
 const API_URL = "http://localhost:3001/Events";
-export const Events = () => {
- const [EventDatas, setEventDatas] = useState<EventFormData[]>([]);
 
- const fetchEvents = async () => {
+export const Events = () => {
+  const [EventDatas, setEventDatas] = useState<EventFormData[]>([]);
+
+  const fetchEvents = async () => {
     try {
       const response = await fetch(API_URL);
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch events");
-      }
+      if (!response.ok) throw new Error("Failed to fetch events");
 
       const data: EventFormData[] = await response.json();
       setEventDatas(data);
@@ -39,9 +39,11 @@ export const Events = () => {
 
   useEffect(() => {
     fetchEvents();
-    console.log("Fetched Events:", EventDatas); // Debug log to check fetched data
   }, []);
 
+  useEffect(() => {
+    console.log("Fetched Events:", EventDatas);
+  }, [EventDatas]);
 
 
 
@@ -106,11 +108,7 @@ export const Events = () => {
             <ul className="space-y-2">
               <li className="flex items-center text-gray-700 hover:bg-green-50 p-2 rounded-md transition-colors">
                 <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></span>
-                {EventDatas.length > 0 ? (
-                  EventDatas[0].title + " - " + new Date(EventDatas[0].startDateTime).toLocaleDateString()
-                ) : (
-                  "No holidays available"
-                )}
+                Independence Day - 15th August 2026
               </li>
               <li className="flex items-center text-gray-700 hover:bg-green-50 p-2 rounded-md transition-colors">
                 <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></span>
@@ -166,14 +164,19 @@ export const Events = () => {
       {/* Calendar View */}
       <div className="lg:w-2/3 bg-white rounded-lg shadow-sm p-4">
         <CalendarView
-          events={EventDatas.map(event => ({
-            title: event.title,
-            start: event.startDateTime,
-            end: event.endDateTime,
-          }))}
-          handleDateClick={handleDateClick}
-          EventColor="#88aeeb"
-        />
+  events={EventDatas.map((event) => ({
+    title: event.event_title,
+    start: event.time
+      ? `${event.date}T${event.time}`
+      : event.date,
+    backgroundColor:
+      event.category === "holidays"
+        ? "#34D399"
+        : "#60A5FA",
+  }))}
+  handleDateClick={handleDateClick}
+  EventColor="#88aeeb"
+/>
       </div>
     </div>
   );

@@ -237,70 +237,33 @@
     ]
   }
 ],
-
-  "Events": [
+ "Events": [
     {
-      "event_id": "EVT001",
+      "event_id": "EVT201",
       "category": "holidays",
       "event_title": "New Year's Day",
-      "date": "2025-01-01",
+      "date": "2026-01-01",
       "time": null,
       "plan": {
         "plan_type": "no_work",
-        "details": "Office Closed - Public Holiday"
+        "details": "Office Closed - New Year Holiday"
       },
-      "description": "New Year's Day observed. All employees have the day off."
+      "description": "New Year's Day observed. Office will remain closed."
     },
     {
-      "event_id": "EVT002",
-      "category": "holidays",
-      "event_title": "Memorial Day",
-      "date": "2025-05-26",
-      "time": null,
-      "plan": {
-        "plan_type": "no_work",
-        "details": "Office Closed"
-      },
-      "description": "Memorial Day holiday. Office will be closed."
-    },
-    {
-      "event_id": "EVT003",
-      "category": "festivals",
-      "event_title": "Diwali Celebration",
-      "date": "2025-10-30",
-      "time": null,
-      "plan": {
-        "plan_type": "celebration",
-        "details": "Cultural program, dinner, and gift exchange"
-      },
-      "description": "Annual Diwali celebration with cultural performances, Indian sweets, and festive decorations. Traditional attire encouraged."
-    },
-    {
-      "event_id": "EVT004",
-      "category": "festivals",
-      "event_title": "Christmas Lunch",
-      "date": "2025-12-24",
-      "time": null,
-      "plan": {
-        "plan_type": "celebration",
-        "details": "Special Christmas lunch in cafeteria"
-      },
-      "description": "Join us for a special Christmas lunch. Secret Santa gift exchange optional."
-    },
-    {
-      "event_id": "EVT005",
+      "event_id": "EVT202",
       "category": "office_party",
-      "event_title": "Quarterly Team Building",
-      "date": "2025-03-15",
+      "event_title": "Annual Company Kickoff 2026",
+      "date": "2026-01-15",
       "time": {
-        "start_time": "2:00 PM",
-        "end_time": "5:00 PM"
+        "start_time": "10:00 AM",
+        "end_time": "2:00 PM"
       },
       "plan": {
-        "plan_type": "celebration",
-        "details": "Escape room activity followed by dinner"
+        "plan_type": "meeting",
+        "details": "Company roadmap, goals, and team recognition"
       },
-      "description": "Q1 team building event. We'll be doing an escape room challenge followed by dinner at The Grill.",
+      "description": "Annual kickoff meeting to align teams on company vision and goals for 2026.",
       "audience": {
         "scope": "all",
         "target_departments": [],
@@ -308,106 +271,116 @@
       }
     },
     {
-      "event_id": "EVT006",
-      "category": "office_party",
-      "event_title": "Engineering Department Happy Hour",
-      "date": "2025-04-10",
-      "time": {
-        "start_time": "4:30 PM",
-        "end_time": "6:30 PM"
-      },
+      "event_id": "EVT203",
+      "category": "festivals",
+      "event_title": "Pongal Celebration",
+      "date": "2026-01-14",
+      "time": null,
       "plan": {
         "plan_type": "celebration",
-        "details": "Drinks and appetizers at Sky Bar"
+        "details": "Traditional lunch and cultural activities"
       },
-      "description": "Monthly Engineering social hour. Great opportunity to network and unwind.",
-      "audience": {
-        "scope": "department",
-        "target_departments": ["Engineering"],
-        "target_teams": []
-      }
+      "description": "Celebrate Pongal with traditional food, decorations, and team bonding activities."
     },
     {
-      "event_id": "EVT007",
-      "category": "office_party",
-      "event_title": "Marketing Team Lunch",
-      "date": "2025-05-08",
-      "time": {
-        "start_time": "12:30 PM",
-        "end_time": "2:00 PM"
-      },
-      "plan": {
-        "plan_type": "celebration",
-        "details": "Team lunch at Italian Bistro"
-      },
-      "description": "Monthly team lunch to celebrate successful campaign launches.",
-      "audience": {
-        "scope": "team",
-        "target_departments": [],
-        "target_teams": ["Marketing Team"]
-      }
-    },
-    {
-      "event_id": "EVT008",
+      "event_id": "EVT204",
       "category": "custom_event",
-      "event_title": "React Workshop for Frontend Team",
-      "date": "2025-02-20",
+      "event_title": "AI Innovation Workshop",
+      "date": "2026-02-10",
       "time": {
-        "start_time": "10:00 AM",
-        "end_time": "3:00 PM"
-      },
-      "plan": {
-        "plan_type": "meeting",
-        "details": "Advanced React patterns and hooks workshop"
-      },
-      "description": "Full-day workshop on advanced React concepts. Lunch will be provided.",
-      "audience": {
-        "scope": "team",
-        "target_departments": [],
-        "target_teams": ["Frontend Team"]
-      }
-    },
-    {
-      "event_id": "EVT009",
-      "category": "custom_event",
-      "event_title": "Sales Training: Negotiation Skills",
-      "date": "2025-03-05",
-      "time": {
-        "start_time": "9:00 AM",
-        "end_time": "12:00 PM"
-      },
-      "plan": {
-        "plan_type": "meeting",
-        "details": "Interactive negotiation workshop with external trainer"
-      },
-      "description": "Intensive training session on advanced negotiation techniques for sales professionals.",
-      "audience": {
-        "scope": "department",
-        "target_departments": ["Sales"],
-        "target_teams": []
-      }
-    },
-    {
-      "event_id": "EVT010",
-      "category": "custom_event",
-      "event_title": "New Employee Orientation",
-      "date": "2025-01-15",
-      "time": {
-        "start_time": "8:30 AM",
+        "start_time": "9:30 AM",
         "end_time": "4:30 PM"
       },
       "plan": {
         "plan_type": "meeting",
-        "details": "Full-day orientation including benefits overview and company tour"
+        "details": "Hands-on AI tools and innovation sessions"
       },
-      "description": "Mandatory orientation for all new hires starting in January.",
+      "description": "Workshop focused on practical AI use cases, automation, and emerging technologies.",
+      "audience": {
+        "scope": "department",
+        "target_departments": ["Engineering", "Data Science"],
+        "target_teams": []
+      }
+    },
+    {
+      "event_id": "EVT205",
+      "category": "holidays",
+      "event_title": "Republic Day",
+      "date": "2026-01-26",
+      "time": null,
+      "plan": {
+        "plan_type": "no_work",
+        "details": "Office Closed"
+      },
+      "description": "Republic Day holiday. Office will be closed."
+    },
+    {
+      "event_id": "EVT206",
+      "category": "office_party",
+      "event_title": "Product Success Celebration",
+      "date": "2026-03-20",
+      "time": {
+        "start_time": "4:00 PM",
+        "end_time": "7:00 PM"
+      },
+      "plan": {
+        "plan_type": "celebration",
+        "details": "Team celebration and awards"
+      },
+      "description": "Celebrating the success of our flagship product launch with awards and refreshments.",
+      "audience": {
+        "scope": "all",
+        "target_departments": [],
+        "target_teams": []
+      }
+    },
+    {
+      "event_id": "EVT207",
+      "category": "festivals",
+      "event_title": "Diwali Celebration",
+      "date": "2026-11-08",
+      "time": null,
+      "plan": {
+        "plan_type": "celebration",
+        "details": "Festive lunch and cultural programs"
+      },
+      "description": "Diwali celebration with traditional decorations, sweets, and cultural performances."
+    },
+    {
+      "event_id": "EVT208",
+      "category": "custom_event",
+      "event_title": "Leadership Development Program",
+      "date": "2026-09-12",
+      "time": {
+        "start_time": "9:00 AM",
+        "end_time": "5:00 PM"
+      },
+      "plan": {
+        "plan_type": "meeting",
+        "details": "Leadership skills and management training"
+      },
+      "description": "Full-day leadership development program for managers and team leads.",
       "audience": {
         "scope": "individual",
         "target_departments": [],
         "target_teams": []
       }
+    },
+    {
+      "event_id": "EVT209",
+      "category": "holidays",
+      "event_title": "Christmas Day",
+      "date": "2026-12-25",
+      "time": null,
+      "plan": {
+        "plan_type": "no_work",
+        "details": "Office Closed"
+      },
+      "description": "Christmas Day holiday. Office will be closed."
     }
   ]
+
+  
 
 
 }
