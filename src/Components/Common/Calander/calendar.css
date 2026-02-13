@@ -1,0 +1,16 @@
+.calendar-wrapper {
+  max-width: auto;
+  padding: 50px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .fc-toolbar-title {
+    font-size: 14px;
+  }
+
+  .fc-button {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+}

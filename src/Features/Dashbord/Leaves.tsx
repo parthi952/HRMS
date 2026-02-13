@@ -24,10 +24,10 @@ const Leaves: React.FC = () => {
       path: "/leaverequests"
     },
     {
-      CardTitle: "Upcoming Holidays",
+      CardTitle: "Events",
       IMG: HandshakeIMG,
-      nameOfIMG: "Upcoming Holidays",
-      path:"/upcomingholidays",
+      nameOfIMG: "Events",
+      path:"/Events",
     },
     {
       CardTitle: "Leave Balance",

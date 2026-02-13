@@ -9,8 +9,9 @@ import Payroll from "./Features/Dashbord/Payroll";
 import { Employee } from "./Features/Dashbord/Employee";
 import { EMPleaves } from "./Features/Dashbord/Leaves/EMPleaves";
 import { LeaveRequest } from "./Features/Dashbord/Leaves/LeaveRequest";
-import { UpHolidays } from "./Features/Dashbord/Leaves/UpHolidays";
+
 import { LeaveBalance } from "./Features/Dashbord/Leaves/LeaveBalance";
+import { Events } from "./Features/Dashbord/Leaves/Events";
 
 
 export const router = createBrowserRouter([
@@ -53,8 +54,8 @@ export const router = createBrowserRouter([
         element:<LeaveRequest/>
       },
       {
-        path:"/upcomingholidays",
-        element:<UpHolidays/>
+        path:"/Events",
+        element:<Events/>
       },
       {
         path:"/leavebalance",
