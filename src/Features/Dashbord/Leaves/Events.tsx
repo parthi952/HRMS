@@ -1,38 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CalendarView from "../../../Components/Common/Calander/CalendarView";
 import { Button } from "../../../Components/Common/Button";
 
-export type CalendarEvent = {
-  id: string;
+export type NotifyScope = "ALL" | "TEAM" | "DEPARTMENT" | "EMPLOYEE";
+
+export interface EventFormData {
   title: string;
-  start: string;
-  end?: string;
-  allDay?: boolean;
-};
+  startDateTime: string;
+  endDateTime: string;
+  category: string;
+  plan: string;
+  description: string;
+  notifyScope: NotifyScope;
+  notifyTargets: string[];
+}
 
+
+
+
+const API_URL = "http://localhost:3001/Events";
 export const Events = () => {
-  const [events, setEvents] = useState<CalendarEvent[]>([
-    {
-      id: "1",
-      title: "Rath Yatra",
-      start: "2026-02-16",
-      allDay: true,
-    },
-  ]);
+ const [EventDatas, setEventDatas] = useState<EventFormData[]>([]);
 
-  const handleDateClick = (arg: any) => {
-    setEvents((prev) => [
-      ...prev,
-      {
-        id: `${arg.dateStr}-${crypto.randomUUID()}`,
-        title: "Dummy Event",
-        start: arg.dateStr,
-        allDay: true,
-      },
-    ]);
+ const fetchEvents = async () => {
+    try {
+      const response = await fetch(API_URL);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch events");
+      }
+
+      const data: EventFormData[] = await response.json();
+      setEventDatas(data);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
   };
 
-  const handleAddEvent = () => {
+  useEffect(() => {
+    fetchEvents();
+    console.log("Fetched Events:", EventDatas); // Debug log to check fetched data
+  }, []);
+
+
+
+
+
+
+
+  const handleDateClick = (arg: any) => {
+    alert(`Date clicked: ${arg.dateStr}`);
+  };
+
+  const AddEvent = () => {
     alert("Add Event button clicked! Implement your logic here.");
   };
 
@@ -49,7 +69,7 @@ export const Events = () => {
           </h1>
           <div className="text-sm text-gray-600">
             <Button 
-              ClickToAction={handleAddEvent} 
+              ClickToAction={AddEvent} 
               B_name="Add Event"
             />
           </div>
@@ -60,6 +80,7 @@ export const Events = () => {
 
           {/* Upcoming Events */}
           <div className="bg-white rounded-lg shadow-sm p-6">
+            
             <h2 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
               <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
               Upcoming Events
@@ -85,7 +106,11 @@ export const Events = () => {
             <ul className="space-y-2">
               <li className="flex items-center text-gray-700 hover:bg-green-50 p-2 rounded-md transition-colors">
                 <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></span>
-                Independence Day - 15th August 2026
+                {EventDatas.length > 0 ? (
+                  EventDatas[0].title + " - " + new Date(EventDatas[0].startDateTime).toLocaleDateString()
+                ) : (
+                  "No holidays available"
+                )}
               </li>
               <li className="flex items-center text-gray-700 hover:bg-green-50 p-2 rounded-md transition-colors">
                 <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></span>
@@ -141,7 +166,11 @@ export const Events = () => {
       {/* Calendar View */}
       <div className="lg:w-2/3 bg-white rounded-lg shadow-sm p-4">
         <CalendarView
-          events={events}
+          events={EventDatas.map(event => ({
+            title: event.title,
+            start: event.startDateTime,
+            end: event.endDateTime,
+          }))}
           handleDateClick={handleDateClick}
           EventColor="#88aeeb"
         />

@@ -5,14 +5,11 @@ import interactionPlugin from "@fullcalendar/interaction";
 
 
 export type CalendarEvent = {
-  id: string;
   title: string;
   start: string;
   end?: string;
-  allDay?: boolean;
-  
+  backgroundColor?: string;
 };
-
 
 type CalendarViewProps = {
   events: CalendarEvent[];
