@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import CalendarView from "../../../Components/Common/Calander/CalendarView";
 import { Button } from "../../../Components/Common/Button";
+import { FormFiled } from "../../../Components/Common/FormFiled";
+import { Form } from "react-router-dom";
 
 export type NotifyScope = "ALL" | "TEAM" | "DEPARTMENT" | "EMPLOYEE";
 
@@ -24,6 +26,49 @@ const API_URL = "http://localhost:3001/Events";
 
 export const Events = () => {
   const [EventDatas, setEventDatas] = useState<EventFormData[]>([]);
+  const [ShowEdit,setShowEdit]=useState(false)
+const [formData, setformData] = useState<EventFormData>({
+  event_id: "",
+  category: "",
+  event_title: "",
+  date: "",
+  time: null,
+  plan: {
+    plan_type: "",
+    details: "",
+  },
+  description: "",
+});
+
+const saveEvent = async () => {
+  if (!formData.event_title || !formData.date) {
+    alert("Must input Event title and date");
+    return;
+  }
+
+  try {
+    await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    setShowEdit(false);
+    fetchEvents();
+
+    setformData({
+      event_id: "",
+      category: "",
+      event_title: "",
+      date: "",
+      time: null,
+      plan: { plan_type: "", details: "" },
+      description: "",
+    });
+  } catch (error) {
+    console.error("Save error:", error);
+  }
+};
 
   const fetchEvents = async () => {
     try {
@@ -46,7 +91,16 @@ export const Events = () => {
   }, [EventDatas]);
 
 
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
+  const { name, value } = e.target;
 
+  setformData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
 
 
 
@@ -55,7 +109,7 @@ export const Events = () => {
   };
 
   const AddEvent = () => {
-    alert("Add Event button clicked! Implement your logic here.");
+    setShowEdit(true);
   };
 
   return (
@@ -177,7 +231,55 @@ export const Events = () => {
   handleDateClick={handleDateClick}
   EventColor="#88aeeb"
 />
+
+    {ShowEdit && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white w-full max-w-md p-6 rounded-xl shadow-lg relative">
+            <button
+              onClick={() => setShowEdit(false)}
+              className="absolute top-3 right-3 text-gray-500"
+            >
+              ✕
+            </button>
+
+            <h3 className="text-lg font-semibold mb-4">Add Event</h3>
+
+            <FormFiled
+             Lable="Titile Name " 
+             name="event_title" 
+             in_PlaceHolder="Enter Event Tilel" 
+             value={formData.event_title}  
+             onChange={handleChange} />
+            <FormFiled
+  Lable="Event Date"
+  name="date"
+        in_PlaceHolder="Set DATE"
+  value={formData.date}
+  onChange={handleChange}
+/>
+
+
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={() => setShowEdit(false)}
+                className="px-4 py-2 bg-gray-300 rounded"
+              >
+                Cancel
+              </button>
+
+              <button
+                onClick={saveEvent}
+                className="px-4 py-2 bg-blue-600 text-white rounded"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       </div>
+
     </div>
   );
 };
