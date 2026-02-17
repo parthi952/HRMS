@@ -2,7 +2,9 @@ import {  useEffect, useState } from "react";
 import CalendarView from "../../../Components/Common/Calander/CalendarView";
 import { Button } from "../../../Components/Common/Button";
 import { FormFiled } from "../../../Components/Common/FormFiled";
-import { Form } from "react-router-dom";
+import { Selection } from "../../../Components/Common/Selection";
+import { CustomDatePicker } from "../../../Components/Common/CustomDatePicker.tsx";
+
 
 export type NotifyScope = "ALL" | "TEAM" | "DEPARTMENT" | "EMPLOYEE";
 
@@ -39,6 +41,8 @@ const [formData, setformData] = useState<EventFormData>({
   },
   description: "",
 });
+
+
 
 const saveEvent = async () => {
   if (!formData.event_title || !formData.date) {
@@ -111,6 +115,32 @@ const handleChange = (
   const AddEvent = () => {
     setShowEdit(true);
   };
+
+const getEventColor = (category: string) => {
+  switch (category) {
+    case "holidays":
+      return "#34D399"; // green
+    case "Festival":
+      return "#F59E0B"; // amber
+    case "birthday":
+      return "#EC4899"; // pink
+    case "meeting":
+      return "#6366F1"; // indigo
+    case "Party":
+      return "#9e1fda"
+    default:
+      return "#60A5FA"; // blue (fallback)
+  }
+};
+
+  const Event_option = [
+  { label: "Festival", value: "Festival" },
+  { label: "Birthday", value: "birthday" },
+  { label: "Meeting", value: "meeting" },
+  { label: "Party", value: "Party" },
+  {label:"Holiday", value:"holidays"},
+  { label: "Others", value: "Others" },
+];
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 p-6 max-w-7xl mx-auto">
@@ -223,10 +253,9 @@ const handleChange = (
     start: event.time
       ? `${event.date}T${event.time}`
       : event.date,
-    backgroundColor:
-      event.category === "holidays"
-        ? "#34D399"
-        : "#60A5FA",
+    backgroundColor: getEventColor(event.category),
+    
+
   }))}
   handleDateClick={handleDateClick}
   EventColor="#88aeeb"
@@ -250,13 +279,27 @@ const handleChange = (
              in_PlaceHolder="Enter Event Tilel" 
              value={formData.event_title}  
              onChange={handleChange} />
-            <FormFiled
-  Lable="Event Date"
-  name="date"
-        in_PlaceHolder="Set DATE"
-  value={formData.date}
-  onChange={handleChange}
+            <CustomDatePicker
+             Lable="Event Date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+            />
+           
+            <Selection
+  label="Select Event"
+  name="category"
+  value={formData.category}
+  options={Event_option}
+  placeholder="Choose event type"
+  onChange={(e) =>
+    setformData((prev) => ({
+      ...prev,
+      category: e.target.value,
+    }))
+  }
 />
+
 
 
             <div className="flex justify-end gap-2">

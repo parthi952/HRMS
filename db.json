@@ -542,6 +542,97 @@
         "details": ""
       },
       "description": ""
+    },
+    {
+      "id": "84c3",
+      "event_id": "",
+      "category": "Birthday",
+      "event_title": "Meeting",
+      "date": "2026-02-18",
+      "time": null,
+      "plan": {
+        "plan_type": "",
+        "details": ""
+      },
+      "description": ""
+    },
+    {
+      "id": "e9a4",
+      "event_id": "",
+      "category": "Festival",
+      "event_title": "Meating",
+      "date": "2026-02-18",
+      "time": null,
+      "plan": {
+        "plan_type": "",
+        "details": ""
+      },
+      "description": ""
+    },
+    {
+      "id": "444f",
+      "event_id": "",
+      "category": "Holiday",
+      "event_title": "birthday",
+      "date": "15-05-2026",
+      "time": null,
+      "plan": {
+        "plan_type": "",
+        "details": ""
+      },
+      "description": ""
+    },
+    {
+      "id": "6ce7",
+      "event_id": "",
+      "category": "Holiday",
+      "event_title": "Meating",
+      "date": "2026-02-19",
+      "time": null,
+      "plan": {
+        "plan_type": "",
+        "details": ""
+      },
+      "description": ""
+    },
+    {
+      "id": "6633",
+      "event_id": "",
+      "category": "holidays",
+      "event_title": "deepavali",
+      "date": "2026-02-20",
+      "time": null,
+      "plan": {
+        "plan_type": "",
+        "details": ""
+      },
+      "description": ""
+    },
+    {
+      "id": "6784",
+      "event_id": "",
+      "category": "Festival",
+      "event_title": "Meating",
+      "date": "2026-02-10",
+      "time": null,
+      "plan": {
+        "plan_type": "",
+        "details": ""
+      },
+      "description": ""
+    },
+    {
+      "id": "7ab4",
+      "event_id": "",
+      "category": "birthday",
+      "event_title": "Meating",
+      "date": "2026-02-03",
+      "time": null,
+      "plan": {
+        "plan_type": "",
+        "details": ""
+      },
+      "description": ""
     }
   ]
 }

@@ -33,6 +33,7 @@ const CalendarView: React.FC<CalendarViewProps> = ({
       dateClick={handleDateClick}
       height="auto"
       eventBackgroundColor={EventColor}
+      eventBorderColor ="transparent"
       
     />
   );

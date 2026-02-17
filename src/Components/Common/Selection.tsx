@@ -9,7 +9,7 @@ type SelectionProps = {
   label: string;
   name: string;
   value: string;
-  options: Option[];
+  options: Option[] ;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   placeholder?: string;
 };
