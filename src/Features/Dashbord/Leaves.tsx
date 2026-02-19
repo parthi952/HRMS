@@ -1,7 +1,7 @@
 import React from "react";
 import IMG from "../../assets/Empleaves.png";
 
-import { LeaveSection } from "../../Components/Leaves/LeaveSection";
+import { LeaveSection } from "./Leaves/LeaveSection";
 
 const Leaves: React.FC = () => {
   
