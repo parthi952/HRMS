@@ -283,7 +283,7 @@ const getEventColor = (category: string) => {
              Lable="Event Date"
               name="date"
               value={formData.date}
-              onChange={handleChange}
+              onChange={(e) => handleChange(e as React.ChangeEvent<HTMLInputElement>)}
             />
            
             <Selection
