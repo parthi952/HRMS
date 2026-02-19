@@ -1,64 +1,97 @@
 import React from "react";
-import { Card } from "../../Components/Common/Card";
+import IMG from "../../assets/Empleaves.png";
 
-import HandshakeIMG from "../../assets/Empleaves.png";
-
-import { Link } from "react-router-dom";
-
-;
-
+import { LeaveSection } from "../../Components/Leaves/LeaveSection";
 
 const Leaves: React.FC = () => {
-
-  const CardData = [
-    {
-      CardTitle: "Employee Leaves",
-      IMG: HandshakeIMG,
-      nameOfIMG: "Employee Leaves",
-      path : "/employeeleave"
-    },
-    {
-      CardTitle: "Leave Requests",
-      IMG: HandshakeIMG,
-      nameOfIMG: "Leave Requests",
-      path: "/leaverequests"
-    },
-    {
-      CardTitle: "Events",
-      IMG: HandshakeIMG,
-      nameOfIMG: "Events",
-      path:"/Events",
-    },
-    {
-      CardTitle: "Leave Balance",
-      IMG: HandshakeIMG,
-      nameOfIMG: "Leave Balance",
-      path:"/leavebalance"
-    }
-  ];
-
-
+  
+const SummaryCard = ({
+  title,
+  value,
+}: {
+  title: string;
+  value: string;
+}) => (
+  <div className="bg-white p-5 rounded-xl shadow">
+    <p className="text-gray-500 text-sm">{title}</p>
+    <p className="text-2xl font-bold mt-1">{value}</p>
+  </div>
+);
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-6">Leave Management</h2>
+    <section className="min-h-screen bg-gray-100 p-6 space-y-8">
 
-      <div className="flex flex-wrap gap-6">
-        {CardData.map((card, index) => (
-          <Link to={card.path as string}>
-          <Card
-            key={index}
-            CardTitle={card.CardTitle}
-            IMG={card.IMG}
-            NameOfIMG={card.nameOfIMG}
-            
-          />
-          </Link>
-        ))}
+      {/* ---------- Header ---------- */}
+      <div>
+        <h1 className="text-3xl font-bold text-gray-800">
+          Leave Management
+        </h1>
+        <p className="text-gray-500 mt-1">
+          Manage employee leaves, approvals, balances and events
+        </p>
       </div>
-     
-    </div>
+
+      {/* ---------- Summary ---------- */}
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <SummaryCard title="Total Employees" value="150" />
+        <SummaryCard title="Pending Requests" value="12" />
+        <SummaryCard title="Approved Leaves" value="38" />
+        <SummaryCard title="Upcoming Events" value="5" />
+      </div>
+
+      {/* ---------- Main Sections ---------- */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <LeaveSection
+          title="Employee Leaves"
+          description="View and manage employee leave history and records."
+          path="/employeeleave"
+          action="View Leaves"
+          IMG={IMG}
+        />
+
+        <LeaveSection
+          title="Leave Requests"
+          description="Approve or reject employee leave requests."
+          path="/leaverequests"
+          action="Review Requests"
+          IMG={IMG}
+        />
+
+        <LeaveSection
+          title="Leave Balance"
+          description="Track available and used leave balances."
+          path="/leavebalance"
+          action="Check Balance"
+          IMG={IMG}
+        />
+
+        <LeaveSection
+          title="Events & Holidays"
+          description="Manage company events and holiday calendar."
+          path="/Events"
+          action="View Events"
+          IMG={IMG}
+        />
+
+      </div>
+
+      {/* ---------- Info Footer ---------- */}
+      <div className="bg-white rounded-xl p-6 shadow">
+        <h3 className="font-semibold text-lg mb-2">
+          About Leave Management
+        </h3>
+        <p className="text-gray-500 text-sm leading-relaxed">
+          Leave Management helps HR teams track employee leave usage, approve
+          requests efficiently, monitor balances, and manage organization-wide
+          events and holidays.
+        </p>
+      </div>
+
+    </section>
   );
 };
 
 export default Leaves;
+
+/* ---------- Components ---------- */
