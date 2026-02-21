@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 import { Button } from "../../Components/Common/Button";
 import { FormFiled } from "../../Components/Common/FormFiled";
 import { Selection } from "../../Components/Common/Selection";
 import { CustomDatePicker } from "../../Components/Common/CustomDatePicker.tsx";
 import { Table } from "../../Components/table/EmployeeTable";
+import { SearchQuery } from "../../Components/Common/Search";
+
 
 const API_URL = "http://localhost:3001/employees";
 
+/* ---------- Types ---------- */
 export type Employee = {
   id: string;
   name: string;
@@ -19,22 +22,14 @@ export type Employee = {
 };
 
 export const Employee = () => {
-  const [FlotCard, setFlotCard] = useState(false);
+  /* ---------- State ---------- */
+  const [showModal, setShowModal] = useState(false);
   const [data, setData] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
 
-  const departmentOptions = [
-    { label: "HR", value: "HR" },
-    { label: "IT", value: "IT" },
-    { label: "Finance", value: "Finance" },
-  ];
-
-  const ActiveStatus = [
-    { label: "Active", value: "Active" },
-    { label: "Inactive", value: "Inactive" },
-  ];
-
+  /* ---------- Form State ---------- */
   const [formData, setFormData] = useState<Employee>({
     id: "",
     name: "",
@@ -46,6 +41,19 @@ export const Employee = () => {
     dateOfJoining: "",
   });
 
+  /* ---------- Options ---------- */
+  const departmentOptions = [
+    { label: "HR", value: "HR" },
+    { label: "IT", value: "IT" },
+    { label: "Finance", value: "Finance" },
+  ];
+
+  const statusOptions = [
+    { label: "Active", value: "Active" },
+    { label: "Inactive", value: "Inactive" },
+  ];
+
+  /* ---------- Table Columns ---------- */
   const columns = [
     { header: "Employee ID", accessor: "id" },
     { header: "Name", accessor: "name" },
@@ -57,6 +65,7 @@ export const Employee = () => {
     { header: "Joining Date", accessor: "dateOfJoining" },
   ];
 
+  /* ---------- Fetch Employees ---------- */
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
@@ -73,10 +82,17 @@ export const Employee = () => {
     fetchEmployees();
   }, []);
 
-  const Action = () => setFlotCard(true);
+  /* ---------- Search Filter ---------- */
+  const filteredData = data.filter((emp) =>
+    [emp.name, emp.email, emp.id]
+      .join(" ")
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
+  /* ---------- Handlers ---------- */
   const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -97,6 +113,7 @@ export const Employee = () => {
 
       const saved = await res.json();
       setData((prev) => [...prev, saved]);
+      setShowModal(false);
 
       setFormData({
         id: "",
@@ -108,8 +125,6 @@ export const Employee = () => {
         status: "Active",
         dateOfJoining: "",
       });
-
-      setFlotCard(false);
     } catch {
       alert("Failed to add employee");
     }
@@ -120,7 +135,6 @@ export const Employee = () => {
 
   return (
     <section className="p-6 bg-gray-100 min-h-screen space-y-6">
-
       {/* ---------- Header ---------- */}
       <div>
         <h1 className="text-3xl font-bold text-gray-800">Employees</h1>
@@ -131,84 +145,98 @@ export const Employee = () => {
 
       {/* ---------- Summary Cards ---------- */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white p-4 rounded-xl shadow">
-          <p className="text-gray-500 text-sm">Total Employees</p>
-          <p className="text-2xl font-bold">{data.length}</p>
-        </div>
-
-        <div className="bg-white p-4 rounded-xl shadow">
-          <p className="text-gray-500 text-sm">Active</p>
-          <p className="text-2xl font-bold text-green-600">
-            {data.filter((e) => e.status === "Active").length}
-          </p>
-        </div>
-
-        <div className="bg-white p-4 rounded-xl shadow">
-          <p className="text-gray-500 text-sm">Inactive</p>
-          <p className="text-2xl font-bold text-red-600">
-            {data.filter((e) => e.status === "Inactive").length}
-          </p>
-        </div>
+        <SummaryCard label="Total Employees" value={data.length} />
+        <SummaryCard
+          label="Active"
+          value={data.filter((e) => e.status === "Active").length}
+          color="text-green-600"
+        />
+        <SummaryCard
+          label="Inactive"
+          value={data.filter((e) => e.status === "Inactive").length}
+          color="text-red-600"
+        />
       </div>
 
       {/* ---------- Action Bar ---------- */}
       <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow">
-        <input
-          type="text"
-          placeholder="Search employee..."
-          className="border px-4 py-2 rounded-lg w-1/3"
-        />
-        <Button B_name="Add Employee" ClickToAction={Action} />
+        <SearchQuery S1={search} S2={setSearch} />
+        <Button B_name="Add Employee" ClickToAction={() => setShowModal(true)} />
       </div>
 
       {/* ---------- Table ---------- */}
-      {data.length === 0 ? (
+      {filteredData.length === 0 ? (
         <div className="bg-white p-10 rounded-xl shadow text-center text-gray-500">
-          No employees found. Click <b>Add Employee</b> to get started.
+          No employees found
         </div>
       ) : (
         <div className="bg-white rounded-xl shadow p-4">
-          <Table columns={columns} data={data} />
+          <Table columns={columns} data={filteredData} />
         </div>
       )}
 
       {/* ---------- Modal ---------- */}
-      {FlotCard && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 rounded-xl shadow-lg relative">
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <h1 className="text-2xl font-bold mb-2">Add Employee</h1>
+          <p className="text-gray-500 mb-6">
+            Enter employee details carefully
+          </p>
 
-            <button
-              onClick={() => setFlotCard(false)}
-              className="absolute top-3 right-3 text-gray-500"
-            >
-              ✕
-            </button>
-
-            <h1 className="text-2xl font-bold mb-2">Add Employee</h1>
-            <p className="text-gray-500 mb-6">
-              Enter employee details carefully
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <FormFiled name="id" value={formData.id} Lable="Employee Code" in_PlaceHolder="EMP001" onChange={onChange} />
-              <FormFiled name="name" value={formData.name} Lable="Name" in_PlaceHolder="Employee name" onChange={onChange} />
-              <FormFiled name="designation" value={formData.designation} Lable="Designation" in_PlaceHolder="Developer" onChange={onChange} />
-
-              <Selection label="Status" name="status" options={ActiveStatus} value={formData.status} onChange={onChange} placeholder="Select status" />
-              <Selection label="Department" name="department" options={departmentOptions} value={formData.department} onChange={onChange} placeholder="Select department" />
-
-              <FormFiled name="email" value={formData.email} Lable="Email" in_PlaceHolder="employee@mail.com" onChange={onChange} />
-              <CustomDatePicker name="dateOfJoining" value={formData.dateOfJoining} Lable="Joining Date" onChange={onDateChange} />
-              <FormFiled name="phone" value={formData.phone} Lable="Phone" in_PlaceHolder="9876543210" onChange={onChange} />
-            </div>
-
-            <div className="mt-6 flex justify-end border-t pt-4">
-              <Button B_name="Submit" ClickToAction={onSubmit} />
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormFiled name="id" value={formData.id} Lable="Employee Code" in_PlaceHolder="EMP001" onChange={onChange} />
+            <FormFiled name="name" value={formData.name} Lable="Name" in_PlaceHolder="Employee name" onChange={onChange} />
+            <FormFiled name="designation" value={formData.designation} Lable="Designation" in_PlaceHolder="Developer" onChange={onChange} />
+            <Selection label="Status" name="status" options={statusOptions} value={formData.status} onChange={onChange} />
+            <Selection label="Department" name="department" options={departmentOptions} value={formData.department} onChange={onChange} />
+            <FormFiled name="email" value={formData.email} Lable="Email" in_PlaceHolder="employee@mail.com" onChange={onChange} />
+            <CustomDatePicker name="dateOfJoining" value={formData.dateOfJoining} Lable="Joining Date" onChange={onDateChange} />
+            <FormFiled name="phone" value={formData.phone} Lable="Phone" in_PlaceHolder="9876543210" onChange={onChange} />
           </div>
-        </div>
+
+          <div className="mt-6 flex justify-end border-t pt-4">
+            <Button B_name="Submit" ClickToAction={onSubmit} />
+          </div>
+        </Modal>
       )}
     </section>
   );
 };
+
+/* ---------- Helper Components ---------- */
+
+
+const SummaryCard = ({
+  label,
+  value,
+  color = "text-gray-800",
+}: {
+  label: string;
+  value: number;
+  color?: string;
+}) => (
+  <div className="bg-white p-4 rounded-xl shadow">
+    <p className="text-gray-500 text-sm">{label}</p>
+    <p className={`text-2xl font-bold ${color}`}>{value}</p>
+  </div>
+);
+
+const Modal = ({
+  children,
+  onClose,
+}: {
+  children: React.ReactNode;
+  onClose: () => void;
+}) => (
+  <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+    <div className="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 rounded-xl shadow-lg relative">
+      <button
+        onClick={onClose}
+        className="absolute top-3 right-3 text-gray-500"
+      >
+        ✕
+      </button>
+      {children}
+    </div>
+  </div>
+);

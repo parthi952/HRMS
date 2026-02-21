@@ -15,6 +15,8 @@ const menuItems = [
   { label: "Employees", path: "/employee", icon: Users },
   { label: "Attendance", path: "/attendance", icon: CalendarCheck },
   { label: "Leaves", path: "/leaves", icon: FileText },
+  { label: "Payroll", path: "/payroll", icon: FileText },
+  { label: "Events", path: "/events", icon: CalendarCheck},
   { label: "Department", path: "/department", icon: Building2 },
 ];
 

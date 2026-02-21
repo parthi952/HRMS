@@ -36,7 +36,6 @@ const SummaryCard = ({
         <SummaryCard title="Total Employees" value="150" />
         <SummaryCard title="Pending Requests" value="12" />
         <SummaryCard title="Approved Leaves" value="38" />
-        <SummaryCard title="Upcoming Events" value="5" />
       </div>
 
       {/* ---------- Main Sections ---------- */}
@@ -74,18 +73,6 @@ const SummaryCard = ({
           IMG={IMG}
         />
 
-      </div>
-
-      {/* ---------- Info Footer ---------- */}
-      <div className="bg-white rounded-xl p-6 shadow">
-        <h3 className="font-semibold text-lg mb-2">
-          About Leave Management
-        </h3>
-        <p className="text-gray-500 text-sm leading-relaxed">
-          Leave Management helps HR teams track employee leave usage, approve
-          requests efficiently, monitor balances, and manage organization-wide
-          events and holidays.
-        </p>
       </div>
 
     </section>
