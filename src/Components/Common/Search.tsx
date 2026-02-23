@@ -13,7 +13,7 @@ export const SearchQuery: React.FC<SearchQueryProps> = ({ S1, S2 }) => {
 
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="EMP_ID and NAME "
         value={S1}
         onChange={(event: ChangeEvent<HTMLInputElement>) =>
           S2(event.target.value)
