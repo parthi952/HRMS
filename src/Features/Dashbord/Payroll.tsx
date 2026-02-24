@@ -1,4 +1,4 @@
-import React from 'react'
+
 import PayrollComponents from "./Payroll/PayrollPage"
 import MenuButtons from '../../Components/Common/MenuButtons'
 

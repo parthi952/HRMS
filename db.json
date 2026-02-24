@@ -79,6 +79,16 @@
       "designation": "DEVALOPER",
       "status": "Active",
       "dateOfJoining": "2026-02-25"
+    },
+    {
+      "id": "EMP567",
+      "name": "ravi",
+      "email": "ravi@gmail.com",
+      "phone": "987654321",
+      "department": "IT",
+      "designation": "DESIGNER",
+      "status": "Active",
+      "dateOfJoining": "2026-03-18"
     }
   ],
   "attendance": [
